@@ -1,0 +1,42 @@
+<section class="hero is-link is-small">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <%= link_to root_path, class: "navbar-item" do%>
+            <svg fill = "#ffffff" width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>food_bank</title><path d="M12 3L4 9v12h16V9l-8-6zm.5 9.5c0 .83-.67 1.5-1.5 1.5v4h-1v-4c-.83 0-1.5-.67-1.5-1.5v-3h1v3h.5v-3h1v3h.5v-3h1v3zM15 18h-1v-3.5h-1v-3c0-1.1.9-2 2-2V18z"></path></svg>
+            <span class = "has-textweight-bold is-size-4 ml-4"> Foodlog</span>
+          <%end%>
+          <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <span class="navbar-item">
+              <%= link_to "Create new entry", new_entry_path, class: "button is-success" %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        <% if content_for( :title)%>
+          <%= yield :title %>
+        <%else%>
+          Foodlog
+        <%end%>
+      </p>
+      <p class="subtitle">
+        Rails Tutorial
+      </p>
+    </div>
+  </div>
+</section>

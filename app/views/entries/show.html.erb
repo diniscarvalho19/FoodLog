@@ -1,0 +1,17 @@
+<%content_for :title do%>
+  <%= @entry.meal_type %> &ndash; <%= DateTime.now.strftime("%B %e, %Y")%>
+<%end%>
+<%= render @entry %>
+<div class = "columns is-mobile">
+  <div class = "column">
+    <br>
+    <%= link_to "Edit", edit_entry_path(@entry), class: "button is-gray" %>
+    <hr>
+    <%= link_to "Back", entries_path, class: "button is-gray" %>
+    <hr>
+    <%= button_to "Delete", @entry, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "button is-gray"%>
+    <div class = "column">
+      <!-- -->
+    </div>
+  </div>
+</div>

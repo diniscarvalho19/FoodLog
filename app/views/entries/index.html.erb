@@ -1,0 +1,20 @@
+<% content_for :title do %>
+  Foodlog &ndash; <%= DateTime.now.strftime("%B %e, %Y")%>
+<%end%>
+<h1 class = "is-size-2 has-text-weight-bold mb-3">Entries</h1>
+<div class = "columns is-mobile">
+  <div class = "column">
+    <% @entries.each do |entry| %>
+      <%= render entry %>
+      <br>
+      <%= link_to "Show this entry", entry, class: "button is-gray" %>
+      <hr>
+      <%= link_to "Edit", edit_entry_path(entry), class: "button is-gray" %>
+      <hr>
+      <%= button_to "Delete", entry, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "button is-gray"%>
+    <% end %>
+  </div>
+</div>
+<div class="columns is-centered mt-6">
+  <%= link_to "View all entries", archives_index_path,class: "button is-link is-outlined is-centered"%>
+</div>

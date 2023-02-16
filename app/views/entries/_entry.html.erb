@@ -1,0 +1,24 @@
+<div class = "columns mt-6 is-centered">
+  <div class = "column is-one-third">
+    <nav class = "panel is-link">
+      <p class = "panel heading">
+        <strong> <%= entry.meal_type %> / <%= entry.category.title if entry.category.present?%> </strong>
+      </p>
+      <div class = "panel block">
+        Calories: <%= entry.calories_integer %>
+      </div>
+      <div class = "panel block">
+        Proteins: <%= entry.proteins %>
+      </div>
+      <div class = "panel block">
+        Carbohydrates: <%= entry.carbohydrates %>
+      </div>
+      <div class = "panel block">
+        Fats: <%= entry.fats %>
+      </div>
+      <div class = "panel block">
+        Logged: <%= time_ago_in_words(entry.created_at) %>
+      </div>
+    </p>
+  </nav>
+</div>
